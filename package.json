@@ -1,0 +1,31 @@
+{
+  "name": "dew-task-management-api",
+  "version": "0.1.0",
+  "description": "A simple but complex easy to use task management api, can be easily integrated with any UI or frontedn via easy to use api routes. Can be used in teams to manage and allovcate tasks, also for individuals for managing task.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node ./dist/index.js",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": "github.com/theridwanade/dew-task-management-api",
+  "author": "theridwanade",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jest": "^29.7.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/morgan": "^1.9.9",
+    "dotenv": "^16.4.7"
+  }
+}
