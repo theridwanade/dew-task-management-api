@@ -6,8 +6,8 @@ interface IUser extends Document {
   firstname: string;
   lastname: string;
   isVerified: boolean;
-  teams: string[];
-  tasks: string[];
+  teams: Schema.Types.ObjectId[];
+  tasks: Schema.Types.ObjectId[];
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -34,10 +34,11 @@ const userSchema = new Schema<IUser>(
       default: false
     },
     teams: {
-      type: [String]
+      type: [Schema.Types.ObjectId]
     },
     tasks: {
-      type: [String]
+      type: [Schema.Types.ObjectId],
+      ref: "Task"
     }
   },
   {
