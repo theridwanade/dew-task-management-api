@@ -1,0 +1,2 @@
+- Add project schema for storing and arranging projects in teams or personal 
+- Add sections management and task linking in teh schema perform proper analysis before linking
