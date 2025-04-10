@@ -5,6 +5,7 @@ interface IUser extends Document {
   password: string;
   firstname: string;
   lastname: string;
+  nickname: string;
   isVerified: boolean;
   teams: Schema.Types.ObjectId[];
   tasks: Schema.Types.ObjectId[];
@@ -28,9 +29,11 @@ const userSchema = new Schema<IUser>(
     lastname: {
       type: String,
     },
+    nickname: {
+      type: String,
+    },
     isVerified: {
       type: Boolean,
-      required: true,
       default: false,
     },
     teams: {
