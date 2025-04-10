@@ -1,5 +1,5 @@
 import { Document, Model, model, Schema } from "mongoose";
-import { TimeString } from "../utils/types/types";
+import { AssigneeType, TimeString } from "../utils/types/types";
 
 interface ITask extends Document {
   owner: Schema.Types.ObjectId;
@@ -12,6 +12,8 @@ interface ITask extends Document {
   deadline: Date;
   priority: string;
   reminder: boolean;
+  assigneeType: AssigneeType;
+  assignees: Schema.Types.ObjectId[];
 }
 
 const taskSchema = new Schema<ITask>(
@@ -56,7 +58,17 @@ const taskSchema = new Schema<ITask>(
     reminder: {
       type: Boolean,
       default: false,
-    }
+    },
+    assigneeType: {
+      type: String,
+      enum: ["automatic", "single", "multiple"],
+      default: "automatic"
+    },
+    assignees: [{
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      default: [],
+    }]
   },
   {
     timestamps: true,
