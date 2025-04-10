@@ -23,24 +23,24 @@ const userSchema = new Schema<IUser>(
       required: true,
     },
     firstname: {
-      type: String
+      type: String,
     },
     lastname: {
-      type: String
+      type: String,
     },
     isVerified: {
       type: Boolean,
       required: true,
-      default: false
+      default: false,
     },
     teams: {
-      type: [Schema.Types.ObjectId]
+      type: [Schema.Types.ObjectId],
     },
     tasks: {
       type: [Schema.Types.ObjectId],
       ref: "Task",
-      default: []
-    }
+      default: [],
+    },
   },
   {
     timestamps: true,

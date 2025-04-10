@@ -6,6 +6,8 @@ interface ITask extends Document {
   ownerModel: string;
   title: string;
   description: string;
+  project: string;
+  section: string;
   status: "todo" | "done" | "inprogress";
   date: Date;
   time: TimeString;
@@ -21,12 +23,12 @@ const taskSchema = new Schema<ITask>(
     owner: {
       type: Schema.Types.ObjectId,
       required: true,
-      refPath: "ownerModel"
+      refPath: "ownerModel",
     },
     ownerModel: {
       type: String,
       required: true,
-      enum: ["User", "Team"]
+      enum: ["User", "Team"],
     },
     title: {
       type: String,
@@ -36,15 +38,23 @@ const taskSchema = new Schema<ITask>(
       type: String,
       default: "",
     },
+    project: {
+      type: String,
+      ref: "Project",
+    },
+    section: {
+      type: String,
+      ref: "Section",
+    },
     status: {
       type: String,
       required: true,
       enum: ["todo", "done", "inprogress"],
-      default: "todo"
+      default: "todo",
     },
     date: {
       type: Date,
-      default: null
+      default: null,
     },
     time: {
       type: String,
@@ -62,13 +72,15 @@ const taskSchema = new Schema<ITask>(
     assigneeType: {
       type: String,
       enum: ["automatic", "single", "multiple"],
-      default: "automatic"
+      default: "automatic",
     },
-    assignees: [{
-      type: Schema.Types.ObjectId,
-      ref: "User",
-      default: [],
-    }]
+    assignees: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        default: [],
+      },
+    ],
   },
   {
     timestamps: true,
