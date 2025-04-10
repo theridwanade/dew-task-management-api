@@ -38,7 +38,8 @@ const userSchema = new Schema<IUser>(
     },
     tasks: {
       type: [Schema.Types.ObjectId],
-      ref: "Task"
+      ref: "Task",
+      default: []
     }
   },
   {
