@@ -1,6 +1,7 @@
 import User from "../../models/users.model";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { JwtUserPayload } from "../../utils/types/interface";
 
 export const authenticateUser = async (email: string, password: string) => {
   try {
@@ -25,7 +26,7 @@ export const authenticateUser = async (email: string, password: string) => {
       email: user.email,
       firstname: user.firstname,
       lastname: user.lastname,
-    }, process.env.JWT_SECRET as string, {
+    } as JwtUserPayload, process.env.JWT_SECRET as string, {
       "expiresIn": "1h"
     })
     return {

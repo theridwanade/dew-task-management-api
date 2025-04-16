@@ -28,6 +28,7 @@ const taskSchema = new Schema<ITask>(
     ownerModel: {
       type: String,
       required: true,
+      default: "User",
       enum: ["User", "Team"],
     },
     title: {
