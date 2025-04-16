@@ -16,6 +16,7 @@ interface ITask extends Document {
   reminder: boolean;
   assigneeType: AssigneeType;
   assignees: Schema.Types.ObjectId[];
+  isLinked: boolean;
 }
 
 const taskSchema = new Schema<ITask>(
@@ -82,6 +83,10 @@ const taskSchema = new Schema<ITask>(
         default: [],
       },
     ],
+    isLinked: {
+      type: Boolean,
+      default: true,
+    }
   },
   {
     timestamps: true,
