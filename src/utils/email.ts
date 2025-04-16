@@ -29,8 +29,8 @@ class Email {
     const info = await this.transporter.sendMail({
       from: '"Test 👻" <test@example.com>',
       to: this.email,
-      subject: "Hello",
-      text: "This is a test email.",
+      subject: "Welcome to Dew task manager",
+      text: "You are welcome to dew task manager, you can manage your task with precision and never missed an important task.",
     });
 
     console.log("Message sent:", info.messageId);

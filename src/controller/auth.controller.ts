@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { createUser } from "../services/auth/signup.auth.service";
 import { authenticateUser } from "../services/auth/login.auth.service";
-import { token } from "morgan";
 
 export const signup = async (req: Request, res: Response) => {
   try {
